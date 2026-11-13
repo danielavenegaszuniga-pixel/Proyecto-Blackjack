@@ -8,7 +8,7 @@
 class Mano {
 private:
     std::vector<Carta> cartas;
-    double apuesta;
+    int apuesta;
     std::string estado; // Activa, Plantada, Pasada, Blackjack
     bool esDoblada;
 
@@ -21,9 +21,9 @@ public:
     bool esPasado() const;
     void limpiar();
 
-    // Métodos auxiliares para gestión de apuestas y estado
-    void setApuesta(double a);
-    double getApuesta() const;
+    // MÃ©todos auxiliares para gestiÃ³n de apuestas y estado
+    void setApuesta(int a);
+    int getApuesta() const;
     void setEstado(std::string est);
     std::string getEstado() const;
     void setEsDoblada(bool doblada);
