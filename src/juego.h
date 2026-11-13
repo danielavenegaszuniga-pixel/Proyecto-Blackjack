@@ -1,6 +1,7 @@
 #ifndef JUEGO_H
 #define JUEGO_H
 
+#include <vector>
 #include "zapato.h"
 #include "jugador.h"
 #include "crupier.h"
@@ -11,9 +12,10 @@ private:
     std::vector<Jugador> jugadores;
     Crupier crupier;
 
-    static const int APUESTA_MINIMA = 10;
-    static const int APUESTA_MAXIMA = 500;
-    static const int FICHAS_INICIALES = 1000;
+    std::vector<int> segurosPorJugador;
+
+    void registrarJugadores();
+    bool todosPuedenContinuar() const;
 
 public:
     Juego();
