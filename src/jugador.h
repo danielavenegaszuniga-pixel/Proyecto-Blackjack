@@ -14,9 +14,9 @@ private: //Atributos privados del jugador
 public:
     Jugador(std::string nombre, int fichasIniciales);
 
-    bool apostar(double monto, int indiceMano = 0);
-    void recibirFichas(double monto);
-    bool tieneSaldoSuficiente(double monto) const;
+    bool apostar(int monto, int indiceMano = 0);
+    void recibirFichas(int monto);
+    bool tieneSaldoSuficiente(int monto) const;
     void agregarMano(Mano mano);
 
     std::string getNombre() const;
