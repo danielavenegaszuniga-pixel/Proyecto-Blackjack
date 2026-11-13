@@ -8,7 +8,7 @@
 class Juego {
 private:
     Zapato zapato;
-    Jugador jugador;
+    std::vector<Jugador> jugadores;
     Crupier crupier;
 
     static const int APUESTA_MINIMA = 10;
