@@ -1,6 +1,6 @@
 #include "mano.h"
 
-Mano::Mano() : apuesta(0.0), estado("Activa"), esDoblada(false) {}
+Mano::Mano() : apuesta(0), estado("Activa"), esDoblada(false) {}
 
 void Mano::agregarCarta(Carta c) {
     cartas.push_back(c);
@@ -39,15 +39,36 @@ bool Mano::esPasado() const {
 
 void Mano::limpiar() {
     cartas.clear();
-    apuesta = 0.0;
+    apuesta = 0;
     estado = "Activa";
     esDoblada = false;
 }
 
-void Mano::setApuesta(double a) { apuesta = a; }
-double Mano::getApuesta() const { return apuesta; }
-void Mano::setEstado(std::string est) { estado = est; }
-std::string Mano::getEstado() const { return estado; }
-void Mano::setEsDoblada(bool doblada) { esDoblada = doblada; }
-bool Mano::getEsDoblada() const { return esDoblada; }
-const std::vector<Carta>& Mano::getCartas() const { return cartas; }
+void Mano::setApuesta(int a) {
+    apuesta = a;
+}
+
+int Mano::getApuesta() const {
+    return apuesta;
+}
+
+void Mano::setEstado(std::string est) {
+    estado = est;
+}
+
+std::string Mano::getEstado() const {
+    return estado;
+}
+
+void Mano::setEsDoblada(bool doblada) {
+    esDoblada = doblada;
+}
+
+bool Mano::getEsDoblada() const {
+    return esDoblada;
+}
+
+const std::vector<Carta>& Mano::getCartas() const {
+    return cartas;
+}
+
