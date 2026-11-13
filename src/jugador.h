@@ -6,7 +6,7 @@
 #include "mano.h"
 
 class Jugador {
-private: //Atributos privados del jugador
+private:
     std::string nombre;
     int fichas;
     std::vector<Mano> manos;
@@ -16,6 +16,7 @@ public:
 
     bool apostar(int monto, int indiceMano = 0);
     void recibirFichas(int monto);
+    bool retirarFichas(int monto);
     bool tieneSaldoSuficiente(int monto) const;
     void agregarMano(Mano mano);
 
