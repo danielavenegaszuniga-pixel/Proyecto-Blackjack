@@ -6,7 +6,7 @@
 #include "mano.h"
 
 class Jugador {
-private:
+private: //Atributos privados del jugador
     std::string nombre;
     int fichas;
     std::vector<Mano> manos;
