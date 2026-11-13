@@ -1,65 +1,25 @@
-#include "jugador.h"
-#include "constantes.h"
+#ifndef CRUPIER_H
+#define CRUPIER_H
 
-Jugador::Jugador(std::string nombre, int fichasIniciales)
-    : nombre(nombre), fichas(fichasIniciales) {}
+#include "mano.h"
+#include "zapato.h"
 
-bool Jugador::tieneSaldoSuficiente(int monto) const {
-    return monto > 0 && fichas >= monto;
-}
+class Crupier {
+private:
+    Mano mano;
+    bool tieneSeguroActivo;
 
-bool Jugador::apostar(int monto, int indiceMano) {
-    if (monto < Constantes::APUESTA_MINIMA ||
-        monto > Constantes::APUESTA_MAXIMA) {
-        return false;
-    }
+public:
+    Crupier();
 
-    if (indiceMano < 0 ||
-        indiceMano >= static_cast<int>(manos.size())) {
-        return false;
-    }
+    void recibirCarta(Carta c);
+    void revelarCartaOculta();
+    bool debePedirCarta() const;
+    void jugarTurno(Zapato& zapato);
 
-    if (!tieneSaldoSuficiente(monto)) {
-        return false;
-    }
+    Mano& getMano();
+    bool getTieneSeguroActivo() const;
+    void setTieneSeguroActivo(bool seguro);
+};
 
-    fichas -= monto;
-    manos[indiceMano].setApuesta(monto);
-
-    return true;
-}
-
-void Jugador::recibirFichas(int monto) {
-    if (monto > 0) {
-        fichas += monto;
-    }
-}
-
-bool Jugador::retirarFichas(int monto) {
-    if (!tieneSaldoSuficiente(monto)) {
-        return false;
-    }
-
-    fichas -= monto;
-    return true;
-}
-
-void Jugador::agregarMano(Mano mano) {
-    manos.push_back(mano);
-}
-
-std::string Jugador::getNombre() const {
-    return nombre;
-}
-
-int Jugador::getFichas() const {
-    return fichas;
-}
-
-std::vector<Mano>& Jugador::getManos() {
-    return manos;
-}
-
-void Jugador::limpiarManos() {
-    manos.clear();
-}
+#endif
