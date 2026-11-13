@@ -5,7 +5,7 @@
 #include <stdexcept>
 
 Zapato::Zapato() : indiceActual(0) {
-    std::string palos[] = { "Corazones", "Diamantes", "Picas", "TrÈboles" };
+    std::string palos[] = { "Corazones", "Diamantes", "Picas", "Tr√©boles" };
     std::string valores[] = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 
     // Crear 6 mazos completos (312 cartas)
@@ -17,7 +17,7 @@ Zapato::Zapato() : indiceActual(0) {
                     valNum = 10;
                 }
                 else if (valor == "A") {
-                    valNum = 1; // El valor base del As es 1, se gestiona din·micamente en Mano
+                    valNum = 1; // El valor base del As es 1, se gestiona din√°micamente en Mano
                 }
                 else {
                     valNum = std::stoi(valor);
@@ -30,7 +30,7 @@ Zapato::Zapato() : indiceActual(0) {
 
 void Zapato::barajar() {
     unsigned seed = static_cast<unsigned>(std::chrono::system_clock::now().time_since_epoch().count());
-    std::shuffle(cartas.begin(), cartas.end(), std::default_random_engine(seed));
+    std::shuffle(cartas.begin(), cartas.end(), std::default_random_engine(seed)); //Utiliza std::shuffle para mezclar las cartas y reinicia el √≠ndice.
     indiceActual = 0;
 }
 
