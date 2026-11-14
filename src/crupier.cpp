@@ -9,7 +9,7 @@ bool Crupier::debePedirCarta() const {
     return mano.calcularPuntaje() < 17;
 }
 
-void Crupier::jugarTurno(Zapato& zapato) {
+void Crupier::jugarTurno(Zapato& zapato) { // metodo para jugar su turno
     while (debePedirCarta()) {
         mano.agregarCarta(zapato.repartirCarta());
     }
