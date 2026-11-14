@@ -3,12 +3,12 @@
 #include <string>
 
 class Carta {
-private:
+private: // Atributos privados de carta
     std::string palo;
     std::string valor;
     int valorNumerico;
 
-public:
+public: // Atributos publicos de carta
     Carta(std::string palo, std::string valor, int valorNumerico);
     int obtenerValor() const;
     std::string obtenerPalo() const;
